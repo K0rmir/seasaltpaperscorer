@@ -1,26 +1,39 @@
 "use client";
 
 import {useState} from "react";
+import {useFormStatus} from "react-dom";
 
 export default function App() {
-  const [playerNum, setPlayerNum] = useState(2);
+  const [playerNum, setPlayerNum] = useState(0);
 
   //   console.log(playerNum);
 
   function handleStartGame() {
-    console.log(
-      "If you see this, it means the start game function works on create game button click!"
-    );
+    console.log("Create game button clicked!");
   }
 
   return (
     <div>
-      <button onClick={() => setPlayerNum(2)}>2</button>
-      <button onClick={() => setPlayerNum(3)}>3</button>
-      <button onClick={() => setPlayerNum(4)}>4</button>
+      <div className="flex justify-center m-2 ">
+        <button
+          onClick={() => setPlayerNum(2)}
+          className="w-24 h-10 bg-slate-300 border-2 border-black m-2 rounded-md focus:bg-red-300">
+          2
+        </button>
+        <button
+          onClick={() => setPlayerNum(3)}
+          className="w-24 h-10 bg-slate-300 border-2 border-black m-2 rounded-md focus:bg-red-300">
+          3
+        </button>
+        <button
+          onClick={() => setPlayerNum(4)}
+          className="w-24 h-10 bg-slate-300 border-2 border-black m-2 rounded-md focus:bg-red-300">
+          4
+        </button>
+      </div>
       <form action={handleStartGame}>
         {playerNum === 2 && (
-          <div>
+          <div className="flex flex-col">
             <input
               type="text"
               name="player1"
@@ -36,7 +49,7 @@ export default function App() {
           </div>
         )}
         {playerNum === 3 && (
-          <div>
+          <div className="flex flex-col">
             <input
               type="text"
               name="player1"
@@ -58,7 +71,7 @@ export default function App() {
           </div>
         )}
         {playerNum === 4 && (
-          <div>
+          <div className="flex flex-col">
             <input
               type="text"
               name="player1"
@@ -86,7 +99,9 @@ export default function App() {
           </div>
         )}
 
-        <button type="submit">Create Game</button>
+        <button type="submit" disabled={useFormStatus.pending}>
+          {useFormStatus.pending ? "Creating Game..." : "Create Game"}
+        </button>
       </form>
     </div>
   );

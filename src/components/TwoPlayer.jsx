@@ -1,3 +1,7 @@
 export default function TwoPlayer() {
-  return <></>;
+  return (
+    <>
+      <p>Two player game!</p>
+    </>
+  );
 }
