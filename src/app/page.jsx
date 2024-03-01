@@ -5,10 +5,19 @@ import {useFormStatus} from "react-dom";
 
 export default function App() {
   const [playerNum, setPlayerNum] = useState(0);
+  let playerNames = [];
 
-  //   console.log(playerNum);
+  // function to get player names from form and save to playerNames array //
 
-  function handleStartGame() {
+  function getPlayerNames(formData) {
+    for (let [key, value] of formData.entries()) {
+      playerNames.push(value);
+    }
+    console.log(playerNames);
+  }
+
+  function handleStartGame(formData) {
+    getPlayerNames(formData);
     console.log("Create game button clicked!");
   }
 
@@ -36,15 +45,17 @@ export default function App() {
           <div className="flex flex-col">
             <input
               type="text"
-              name="player1"
-              id="player1"
+              name="name"
+              id="name"
               placeholder="Player 1 Name"
+              required
             />
             <input
               type="text"
-              name="player2"
-              id="player2"
+              name="name"
+              id="name"
               placeholder="Player 2 Name"
+              required
             />
           </div>
         )}
@@ -55,18 +66,21 @@ export default function App() {
               name="player1"
               id="player1"
               placeholder="Player 1 Name"
+              required
             />
             <input
               type="text"
               name="player2"
               id="player2"
               placeholder="Player 2 Name"
+              required
             />
             <input
               type="text"
               name="player3"
               id="player3"
               placeholder="Player 3 Name"
+              required
             />
           </div>
         )}
@@ -77,24 +91,28 @@ export default function App() {
               name="player1"
               id="player1"
               placeholder="Player 1 Name"
+              required
             />
             <input
               type="text"
               name="player2"
               id="player2"
               placeholder="Player 2 Name"
+              required
             />
             <input
               type="text"
               name="player3"
               id="player3"
               placeholder="Player 3 Name"
+              required
             />
             <input
               type="text"
               name="player4"
               id="player4"
               placeholder="Player 4 Name"
+              required
             />
           </div>
         )}

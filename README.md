@@ -3,17 +3,17 @@
 
 <!-- Hex colour codes of cards -->
 
-<!-- DARK BLUE - #10386a
-LIGHT BLUE - #267b8d
-BLACK - #060606
-YELLOW - #b38d09
-LIGHT GREEN - #73a76c
-WHITE - #8d8f9d
-PURPLE - #8f85a5
-LIGHT GREY - #58595c
-LIGHT ORANGE - #ba9060
-LIGHT PINK - #ba798f
-ORANGE - #bf6c34 -->
+<!-- DARK BLUE - #255C9B
+LIGHT BLUE - #42B4C9
+BLACK - #42B4C9
+YELLOW - #42B4C9
+LIGHT GREEN - #42B4C9
+WHITE - #42B4C9
+PURPLE - #42B4C9
+LIGHT GREY - #42B4C9
+LIGHT ORANGE - #42B4C9
+LIGHT PINK - #42B4C9
+ORANGE - #42B4C9 -->
 
 
 <!-- // playerCount = 2 / 3 / 4 - This is chosen by the user via an input which updates the playerCount state. Depending on the choice it will render the corresponding component for the number of players. 
