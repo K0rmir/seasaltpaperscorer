@@ -57,14 +57,14 @@ export default function App() {
             <input
               type="text"
               name="name"
-              id="name"
+              id="player1name"
               placeholder="Player 1 Name"
               required
             />
             <input
               type="text"
               name="name"
-              id="name"
+              id="player1name"
               placeholder="Player 2 Name"
               required
             />
@@ -74,7 +74,7 @@ export default function App() {
           <div className="flex flex-col">
             <input
               type="text"
-              id="name"
+              id="player1name"
               name="name"
               placeholder="Player 1 Name"
               required
@@ -82,14 +82,14 @@ export default function App() {
             <input
               type="text"
               name="name"
-              id="name"
+              id="player2name"
               placeholder="Player 2 Name"
               required
             />
             <input
               type="text"
               name="name"
-              id="name"
+              id="player3name"
               placeholder="Player 3 Name"
               required
             />
@@ -100,28 +100,28 @@ export default function App() {
             <input
               type="text"
               name="name"
-              id="name"
+              id="player1name"
               placeholder="Player 1 Name"
               required
             />
             <input
               type="text"
               name="name"
-              id="name"
+              id="player2name"
               placeholder="Player 2 Name"
               required
             />
             <input
               type="text"
               name="name"
-              id="name"
+              id="player3name"
               placeholder="Player 3 Name"
               required
             />
             <input
               type="text"
               name="name"
-              id="name"
+              id="player4name"
               placeholder="Player 4 Name"
               required
             />
