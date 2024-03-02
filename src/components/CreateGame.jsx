@@ -5,8 +5,8 @@ import {useFormStatus} from "react-dom";
 import {useRouter} from "next/navigation";
 
 export default function App() {
-  const [playerNum, setPlayerNum] = useState(0);
-  const playerNames = [];
+  const [playerNum, setPlayerNum] = useState(0); // playerNum state updates when user clicks 2 / 3 / 4 buttons to set how many players there are //
+  const playerNames = []; // array of player names is populated from inputs in form upon submission //
 
   const router = useRouter();
 
@@ -21,10 +21,7 @@ export default function App() {
   // Function to handle starting a game and redirecting to the correct game size //
   function handleStartGame(formData) {
     getPlayerNames(formData);
-    console.log("Create game button clicked!");
-
     if (playerNum === 2) {
-      console.log("peepee");
       router.push("sea");
     } else if (playerNum === 3) {
       router.push("/salt");
@@ -77,22 +74,22 @@ export default function App() {
           <div className="flex flex-col">
             <input
               type="text"
-              name="player1"
-              id="player1"
+              id="name"
+              name="name"
               placeholder="Player 1 Name"
               required
             />
             <input
               type="text"
-              name="player2"
-              id="player2"
+              name="name"
+              id="name"
               placeholder="Player 2 Name"
               required
             />
             <input
               type="text"
-              name="player3"
-              id="player3"
+              name="name"
+              id="name"
               placeholder="Player 3 Name"
               required
             />
@@ -102,29 +99,29 @@ export default function App() {
           <div className="flex flex-col">
             <input
               type="text"
-              name="player1"
-              id="player1"
+              name="name"
+              id="name"
               placeholder="Player 1 Name"
               required
             />
             <input
               type="text"
-              name="player2"
-              id="player2"
+              name="name"
+              id="name"
               placeholder="Player 2 Name"
               required
             />
             <input
               type="text"
-              name="player3"
-              id="player3"
+              name="name"
+              id="name"
               placeholder="Player 3 Name"
               required
             />
             <input
               type="text"
-              name="player4"
-              id="player4"
+              name="name"
+              id="name"
               placeholder="Player 4 Name"
               required
             />
