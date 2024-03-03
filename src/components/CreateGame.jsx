@@ -30,8 +30,6 @@ export default function App() {
     }
   }
 
-  console.log(playerNum);
-
   return (
     <div>
       <div className="flex justify-center m-2 ">

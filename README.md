@@ -4,16 +4,16 @@
 <!-- Hex colour codes of cards -->
 
 <!-- DARK BLUE - #255C9B
-LIGHT BLUE - #42B4C9
-BLACK - #42B4C9
-YELLOW - #42B4C9
-LIGHT GREEN - #42B4C9
-WHITE - #42B4C9
-PURPLE - #42B4C9
-LIGHT GREY - #42B4C9
-LIGHT ORANGE - #42B4C9
-LIGHT PINK - #42B4C9
-ORANGE - #42B4C9 -->
+LIGHT BLUE - #43B4C8
+BLACK - #000101
+YELLOW - #EEB609
+LIGHT GREEN - #8FC782
+WHITE - #BFBDD1
+PURPLE - #A895C9
+LIGHT GREY - #888C8D
+LIGHT ORANGE - #EFB076
+LIGHT PINK - #E98FA9
+ORANGE - #E27C3C -->
 
 
 <!-- // playerCount = 2 / 3 / 4 - This is chosen by the user via an input which updates the playerCount state. Depending on the choice it will render the corresponding component for the number of players. 
