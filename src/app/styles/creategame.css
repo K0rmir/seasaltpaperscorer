@@ -1,0 +1,12 @@
+.createGameFormInput {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+}
+
+input::placeholder {
+    color: white;
+}

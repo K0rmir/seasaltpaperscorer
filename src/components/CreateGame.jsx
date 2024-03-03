@@ -3,6 +3,7 @@
 import {useState} from "react";
 import {useFormStatus} from "react-dom";
 import {useRouter} from "next/navigation";
+import "@/app/styles/creategame.css";
 
 export default function App() {
   const [playerNum, setPlayerNum] = useState(0); // playerNum state updates when user clicks 2 / 3 / 4 buttons to set how many players there are //
@@ -35,24 +36,25 @@ export default function App() {
       <div className="flex justify-center m-2 ">
         <button
           onClick={() => setPlayerNum(2)}
-          className="w-24 h-10 bg-slate-300 border-2 border-black m-2 rounded-md focus:bg-red-300">
+          className="w-24 h-10 bg-transparent border-2 border-white m-2 rounded-md focus:bg-red-300 focus:border-black">
           2
         </button>
         <button
           onClick={() => setPlayerNum(3)}
-          className="w-24 h-10 bg-slate-300 border-2 border-black m-2 rounded-md focus:bg-red-300">
+          className="w-24 h-10 bg-transparent border-2 border-white m-2 rounded-md focus:bg-red-300 focus:border-black">
           3
         </button>
         <button
           onClick={() => setPlayerNum(4)}
-          className="w-24 h-10 bg-slate-300 border-2 border-black m-2 rounded-md focus:bg-red-300">
+          className="w-24 h-10 bg-transparent border-2 border-white m-2 rounded-md focus:bg-red-300 focus:border-black">
           4
         </button>
       </div>
-      <form action={handleStartGame}>
+      <form className="flex items-center flex-col" action={handleStartGame}>
         {playerNum === 2 && (
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center">
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player1name"
@@ -60,17 +62,19 @@ export default function App() {
               required
             />
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
-              id="player1name"
+              id="player2name"
               placeholder="Player 2 Name"
               required
             />
           </div>
         )}
         {playerNum === 3 && (
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center">
             <input
+              className="createGameFormInput"
               type="text"
               id="player1name"
               name="name"
@@ -78,6 +82,7 @@ export default function App() {
               required
             />
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player2name"
@@ -85,6 +90,7 @@ export default function App() {
               required
             />
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player3name"
@@ -94,8 +100,9 @@ export default function App() {
           </div>
         )}
         {playerNum === 4 && (
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center">
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player1name"
@@ -103,6 +110,7 @@ export default function App() {
               required
             />
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player2name"
@@ -110,6 +118,7 @@ export default function App() {
               required
             />
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player3name"
@@ -117,6 +126,7 @@ export default function App() {
               required
             />
             <input
+              className="createGameFormInput"
               type="text"
               name="name"
               id="player4name"
@@ -126,7 +136,10 @@ export default function App() {
           </div>
         )}
 
-        <button type="submit" disabled={useFormStatus.pending}>
+        <button
+          className="border-2 border-white p-1 rounded-md mt-2 "
+          type="submit"
+          disabled={useFormStatus.pending}>
           {useFormStatus.pending ? "Creating Game..." : "Create Game"}
         </button>
       </form>
