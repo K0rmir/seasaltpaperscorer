@@ -3,7 +3,14 @@
 import {useGameContext} from "@/context/GameContext";
 
 export default function FourPlayerGame() {
-  const {playerNames, gameScore} = useGameContext();
+  const {
+    playerNames,
+    gameScore,
+    playerOneScore,
+    playerTwoScore,
+    playerThreeScore,
+    playerFourScore,
+  } = useGameContext();
   return (
     <>
       <p>This is a four player game!</p>

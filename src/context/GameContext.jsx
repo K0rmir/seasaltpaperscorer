@@ -11,8 +11,15 @@ export default function GameProvider({children}) {
   const [gameScore, setGameScore] = useState(0);
   // This state controls whether or not the Create Game button has been clicked //
   const [gameCreated, setGameCreated] = useState(false);
-
+  // Array of player names //
   const [playerNames, setPlayerNames] = useState();
+  // States for each players current score //
+  const [playerOneTotalScore, setPlayerOneTotalScore] = useState(0);
+  const [playerTwoTotalScore, setPlayerTwoTotalScore] = useState(0);
+  const [playerThreeTotalScore, setPlayerThreeTotalScore] = useState(0);
+  const [playerFourTotalScore, setPlayerFourTotalScore] = useState(0);
+  // State to handle form appearing to update scores at end of each round //
+  const [updateRoundScores, setUpdateRoundScores] = useState(false);
 
   function twoPlayerGame() {
     setPlayerNum(2);
@@ -27,6 +34,11 @@ export default function GameProvider({children}) {
     setGameScore(30);
   }
 
+  let playerOneRoundScore = 0;
+  let playerTwoRoundScore = 0;
+  let playerThreeRoundScore = 0;
+  let playerFourRoundScore = 0;
+
   return (
     <GameContext.Provider
       value={{
@@ -39,6 +51,18 @@ export default function GameProvider({children}) {
         gameCreated,
         setPlayerNames,
         playerNames,
+        setPlayerOneTotalScore,
+        setPlayerTwoTotalScore,
+        setPlayerThreeTotalScore,
+        setPlayerFourTotalScore,
+        playerOneTotalScore,
+        playerTwoTotalScore,
+        playerThreeTotalScore,
+        playerFourTotalScore,
+        playerOneRoundScore,
+        playerTwoRoundScore,
+        setUpdateRoundScores,
+        updateRoundScores,
       }}>
       {children}
     </GameContext.Provider>
