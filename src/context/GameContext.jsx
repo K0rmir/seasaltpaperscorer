@@ -12,6 +12,8 @@ export default function GameProvider({children}) {
   // This state controls whether or not the Create Game button has been clicked //
   const [gameCreated, setGameCreated] = useState(false);
 
+  const [playerNames, setPlayerNames] = useState();
+
   function twoPlayerGame() {
     setPlayerNum(2);
     setGameScore(40);
@@ -35,6 +37,8 @@ export default function GameProvider({children}) {
         gameScore,
         setGameCreated,
         gameCreated,
+        setPlayerNames,
+        playerNames,
       }}>
       {children}
     </GameContext.Provider>

@@ -1,19 +1,18 @@
 "use client";
-import {useRouter} from "next/navigation";
+
+import {useGameContext} from "@/context/GameContext";
 
 export default function TwoPlayerGame() {
-  // const {data} = router.query;
-  // const playerNames = JSON.parse(data);
+  const {playerNames, gameScore} = useGameContext();
 
-  // const playerNames = JSON.parse(props.router.query.data);
+  console.log(playerNames);
 
-  // console.log(playerNames);
   return (
     <>
       <p>This is a two player game!</p>
 
-      {/* <p>{playerNames[0]}</p>
-      <p>{playerNames[1]}</p> */}
+      <p>{playerNames[0]}</p>
+      <p>{playerNames[1]}</p>
     </>
   );
 }

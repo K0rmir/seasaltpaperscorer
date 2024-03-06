@@ -14,23 +14,25 @@ export default function CreateGame() {
     fourPlayerGame,
     setGameCreated,
     gameCreated,
+    setPlayerNames,
   } = useGameContext();
-  const playerNames = []; // array of player names is populated from inputs in form upon submission //
+
+  // array of player names is populated from inputs in form upon submission //
+  const playerNamesArr = [];
 
   // function to get player names from form and save to playerNames array //
   function getPlayerNames(formData) {
     for (let [key, value] of formData.entries()) {
-      playerNames.push(value);
+      playerNamesArr.push(value);
     }
     // console.log(playerNames);
   }
 
-  // Function to handle starting a game and redirecting to the correct game size //
+  // Function to handle starting a game //
   function handleStartGame(formData) {
     getPlayerNames(formData);
     setGameCreated(true);
-    console.log(playerNames);
-    console.log(gameCreated);
+    setPlayerNames(playerNamesArr);
   }
 
   return (
