@@ -1,9 +1,15 @@
 "use client";
 
 import CreateGame from "@/components/CreateGame.jsx";
-import {useEffect, useState} from "react";
+import TwoPlayer from "@/components/TwoPlayer.jsx";
+import ThreePlayer from "@/components/ThreePlayer.jsx";
+import FourPlayer from "@/components/FourPlayer.jsx";
+import {useGameContext} from "@/context/GameContext";
+import {useEffect} from "react";
 
 export default function App() {
+  const {gameCreated, playerNum} = useGameContext();
+
   // function to set background colour to one of 10 from SSP card colours at random //
   function setBackgroundColour() {
     useEffect(() => {
@@ -29,7 +35,10 @@ export default function App() {
 
   return (
     <div>
-      <CreateGame></CreateGame>
+      {!gameCreated && <CreateGame></CreateGame>}
+      {gameCreated && playerNum === 2 && <TwoPlayer></TwoPlayer>}
+      {gameCreated && playerNum === 3 && <ThreePlayer></ThreePlayer>}
+      {gameCreated && playerNum === 4 && <FourPlayer></FourPlayer>}
     </div>
   );
 }

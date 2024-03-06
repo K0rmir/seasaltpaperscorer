@@ -7,12 +7,15 @@ import "@/app/styles/creategame.css";
 import {useGameContext} from "@/context/GameContext";
 
 export default function CreateGame() {
-  const {playerNum, twoPlayerGame, threePlayerGame, fourPlayerGame} =
-    useGameContext();
-  const [createGame, setCreateGame] = useState(false);
+  const {
+    playerNum,
+    twoPlayerGame,
+    threePlayerGame,
+    fourPlayerGame,
+    setGameCreated,
+    gameCreated,
+  } = useGameContext();
   const playerNames = []; // array of player names is populated from inputs in form upon submission //
-
-  // const router = useRouter();
 
   // function to get player names from form and save to playerNames array //
   function getPlayerNames(formData) {
@@ -25,6 +28,9 @@ export default function CreateGame() {
   // Function to handle starting a game and redirecting to the correct game size //
   function handleStartGame(formData) {
     getPlayerNames(formData);
+    setGameCreated(true);
+    console.log(playerNames);
+    console.log(gameCreated);
   }
 
   return (
@@ -133,9 +139,6 @@ export default function CreateGame() {
         )}
 
         <button
-          onClick={() => {
-            setCreateGame(true);
-          }}
           className="border-2 border-white p-1 rounded-md mt-2 "
           type="submit"
           disabled={useFormStatus.pending}>
