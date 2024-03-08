@@ -6,7 +6,7 @@ export default function UpdateScoresForm() {
   const {playerNames, playerNum, setPlayerRoundScores, setUpdateRoundScores} =
     useGameContext();
 
-  //   array of each player round score is populated from inputs in form upon submission //
+  //   array of each players round score that is populated from inputs in form upon submission //
   let playerRoundScoresArr = [];
   //  function to get player round scores from update scores form and save to playerRoundScoresArr //
   function getPlayerRoundScores(formData) {
@@ -15,7 +15,7 @@ export default function UpdateScoresForm() {
       playerRoundScoresArr.push(parseInt(value));
     }
   }
-
+  // function to update player scores and end of each round and reset update scores form //
   function handleUpdateRoundScores(formData) {
     getPlayerRoundScores(formData);
     setPlayerRoundScores(playerRoundScoresArr);

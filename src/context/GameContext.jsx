@@ -20,7 +20,7 @@ export default function GameProvider({children}) {
   const [playerFourTotalScore, setPlayerFourTotalScore] = useState(0);
   // State to handle form appearing to update scores at end of each round //
   const [updateRoundScores, setUpdateRoundScores] = useState(false);
-
+  // Functions to player size and update, create game form & total game score respectively //
   function twoPlayerGame() {
     setPlayerNum(2);
     setGameScore(40);
@@ -33,14 +33,8 @@ export default function GameProvider({children}) {
     setPlayerNum(4);
     setGameScore(30);
   }
-
-  // let playerOneRoundScore = 0;
-  // let playerTwoRoundScore = 0;
-  // let playerThreeRoundScore = 0;
-  // let playerFourRoundScore = 0;
-
+  // Function to update player scores at the end of each round //
   function setPlayerRoundScores(playerRoundScoresArr) {
-    console.log("Test hello");
     setPlayerOneTotalScore(playerOneTotalScore + playerRoundScoresArr[0]);
     setPlayerTwoTotalScore(playerTwoTotalScore + playerRoundScoresArr[1]);
   }
