@@ -37,6 +37,13 @@ export default function GameProvider({children}) {
   function setPlayerRoundScores(playerRoundScoresArr) {
     setPlayerOneTotalScore(playerOneTotalScore + playerRoundScoresArr[0]);
     setPlayerTwoTotalScore(playerTwoTotalScore + playerRoundScoresArr[1]);
+    if (playerNum === 3) {
+      setPlayerThreeTotalScore(playerThreeTotalScore + playerRoundScoresArr[2]);
+    }
+    if (playerNum === 4) {
+      setPlayerThreeTotalScore(playerThreeTotalScore + playerRoundScoresArr[2]);
+      setPlayerFourTotalScore(playerFourTotalScore + playerRoundScoresArr[3]);
+    }
   }
 
   return (
