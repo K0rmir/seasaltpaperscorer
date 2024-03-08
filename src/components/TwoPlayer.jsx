@@ -1,6 +1,7 @@
 "use client";
 
 import {useGameContext} from "@/context/GameContext";
+import UpdateScoresForm from "@/components/UpdateScoresForm.jsx";
 
 export default function TwoPlayerGame() {
   const {
@@ -16,7 +17,7 @@ export default function TwoPlayerGame() {
     updateRoundScores,
   } = useGameContext();
 
-  console.log(playerNames);
+  console.log(updateRoundScores);
 
   return (
     <>
@@ -28,8 +29,13 @@ export default function TwoPlayerGame() {
       <p>
         {playerNames[1]} {playerTwoTotalScore}
       </p>
-      <button onClick={setUpdateRoundScores(true)}>Update Scores</button>
-      {updateRoundScores === true && <p>THIS IS THE UPDATE SCORES FORM</p>}
+      <button
+        onClick={() => {
+          setUpdateRoundScores(true);
+        }}>
+        Update Scores
+      </button>
+      {updateRoundScores && <UpdateScoresForm />}
     </>
   );
 }

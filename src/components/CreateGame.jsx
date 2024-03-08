@@ -58,7 +58,7 @@ export default function CreateGame() {
         {playerNum === 2 && (
           <div className="flex flex-col items-center">
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player1name"
@@ -66,7 +66,7 @@ export default function CreateGame() {
               required
             />
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player2name"
@@ -78,7 +78,7 @@ export default function CreateGame() {
         {playerNum === 3 && (
           <div className="flex flex-col items-center">
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               id="player1name"
               name="name"
@@ -86,7 +86,7 @@ export default function CreateGame() {
               required
             />
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player2name"
@@ -94,7 +94,7 @@ export default function CreateGame() {
               required
             />
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player3name"
@@ -106,7 +106,7 @@ export default function CreateGame() {
         {playerNum === 4 && (
           <div className="flex flex-col items-center">
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player1name"
@@ -114,7 +114,7 @@ export default function CreateGame() {
               required
             />
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player2name"
@@ -122,7 +122,7 @@ export default function CreateGame() {
               required
             />
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player3name"
@@ -130,7 +130,7 @@ export default function CreateGame() {
               required
             />
             <input
-              className="createGameFormInput"
+              className="formInput"
               type="text"
               name="name"
               id="player4name"

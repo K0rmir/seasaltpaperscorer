@@ -1,4 +1,4 @@
-.createGameFormInput {
+.formInput {
     background-color: transparent;
     border: 2px solid white;
     border-radius: 5px;
@@ -8,5 +8,5 @@
 }
 
 input::placeholder {
-    color: white;
+    color: black;
 }

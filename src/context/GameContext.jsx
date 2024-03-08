@@ -34,10 +34,16 @@ export default function GameProvider({children}) {
     setGameScore(30);
   }
 
-  let playerOneRoundScore = 0;
-  let playerTwoRoundScore = 0;
-  let playerThreeRoundScore = 0;
-  let playerFourRoundScore = 0;
+  // let playerOneRoundScore = 0;
+  // let playerTwoRoundScore = 0;
+  // let playerThreeRoundScore = 0;
+  // let playerFourRoundScore = 0;
+
+  function setPlayerRoundScores(playerRoundScoresArr) {
+    console.log("Test hello");
+    setPlayerOneTotalScore(playerOneTotalScore + playerRoundScoresArr[0]);
+    setPlayerTwoTotalScore(playerTwoTotalScore + playerRoundScoresArr[1]);
+  }
 
   return (
     <GameContext.Provider
@@ -59,10 +65,9 @@ export default function GameProvider({children}) {
         playerTwoTotalScore,
         playerThreeTotalScore,
         playerFourTotalScore,
-        playerOneRoundScore,
-        playerTwoRoundScore,
         setUpdateRoundScores,
         updateRoundScores,
+        setPlayerRoundScores,
       }}>
       {children}
     </GameContext.Provider>
