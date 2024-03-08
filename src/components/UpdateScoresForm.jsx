@@ -3,7 +3,8 @@
 import {useGameContext} from "@/context/GameContext";
 
 export default function UpdateScoresForm() {
-  const {playerNames, playerNum, setPlayerRoundScores} = useGameContext();
+  const {playerNames, playerNum, setPlayerRoundScores, setUpdateRoundScores} =
+    useGameContext();
 
   //   array of each player round score is populated from inputs in form upon submission //
   let playerRoundScoresArr = [];
@@ -18,6 +19,7 @@ export default function UpdateScoresForm() {
   function handleUpdateRoundScores(formData) {
     getPlayerRoundScores(formData);
     setPlayerRoundScores(playerRoundScoresArr);
+    setUpdateRoundScores(false);
   }
 
   return (
