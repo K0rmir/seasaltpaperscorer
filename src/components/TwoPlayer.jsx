@@ -20,8 +20,8 @@ export default function TwoPlayerGame() {
   console.log(updateRoundScores);
 
   return (
-    <>
-      <p>This is a two player game! Total points needed to win: {gameScore}</p>
+    <div className="flex flex-col content-center justifiy-center">
+      <p>Total points needed to win: {gameScore}</p>
 
       <p>
         {playerNames[0]} {playerOneTotalScore}
@@ -30,12 +30,13 @@ export default function TwoPlayerGame() {
         {playerNames[1]} {playerTwoTotalScore}
       </p>
       <button
+        className="border-2 border-white p-1 rounded-md mt-2 w-32"
         onClick={() => {
           setUpdateRoundScores(true);
         }}>
         Update Scores
       </button>
       {updateRoundScores && <UpdateScoresForm />}
-    </>
+    </div>
   );
 }

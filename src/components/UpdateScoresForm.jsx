@@ -23,7 +23,7 @@ export default function UpdateScoresForm() {
   }
 
   return (
-    <>
+    <div className="flex flex-col">
       <form action={handleUpdateRoundScores}>
         <input
           className="formInput"
@@ -77,6 +77,6 @@ export default function UpdateScoresForm() {
           Update
         </button>
       </form>
-    </>
+    </div>
   );
 }
