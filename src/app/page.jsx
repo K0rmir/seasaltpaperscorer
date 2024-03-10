@@ -11,7 +11,7 @@ export default function App() {
   const {gameCreated, playerNum} = useGameContext();
 
   // function to set background colour to one of 10 from SSP card colours at random //
-  function setBackgroundColour() {
+  function SetBackgroundColour() {
     useEffect(() => {
       const bgColours = [
         "#255C9B",
@@ -31,7 +31,7 @@ export default function App() {
     }, []);
   }
 
-  setBackgroundColour();
+  SetBackgroundColour();
 
   return (
     <div>
