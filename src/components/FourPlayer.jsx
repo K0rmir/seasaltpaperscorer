@@ -15,32 +15,28 @@ export default function FourPlayerGame() {
     updateRoundScores,
   } = useGameContext();
   return (
-    <>
-      <>
-        <p>
-          This is a four player game! Total points needed to win: {gameScore}
-        </p>
+    <div className="flex flex-col content-center items-center">
+      <p className="m-5">Total points needed to win: {gameScore}</p>
 
-        <p>
-          {playerNames[0]} {playerOneTotalScore}
-        </p>
-        <p>
-          {playerNames[1]} {playerTwoTotalScore}
-        </p>
-        <p>
-          {playerNames[2]} {playerThreeTotalScore}
-        </p>
-        <p>
-          {playerNames[3]} {playerFourTotalScore}
-        </p>
-        <button
-          onClick={() => {
-            setUpdateRoundScores(true);
-          }}>
-          Update Scores
-        </button>
-        {updateRoundScores && <UpdateScoresForm />}
-      </>
-    </>
+      <div className="grid grid-cols-2 grid-rows-4 gap-4 justify-items-center border-white border-2 p-3 rounded-md m-5">
+        <div>{playerNames[0]}</div>
+        <div>{playerOneTotalScore}</div>
+        <div>{playerNames[1]}</div>
+        <div>{playerTwoTotalScore}</div>
+        <div>{playerNames[2]}</div>
+        <div>{playerThreeTotalScore}</div>
+        <div>{playerNames[3]}</div>
+        <div>{playerFourTotalScore}</div>
+      </div>
+
+      <button
+        className="border-2 border-white p-1 rounded-md mt-5 w-32 m-5"
+        onClick={() => {
+          setUpdateRoundScores(true);
+        }}>
+        Update Scores
+      </button>
+      {updateRoundScores && <UpdateScoresForm />}
+    </div>
   );
 }

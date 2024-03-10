@@ -1,6 +1,7 @@
 "use client";
 
 import {useGameContext} from "@/context/GameContext";
+import {useFormStatus} from "react-dom";
 
 export default function UpdateScoresForm() {
   const {playerNames, playerNum, setPlayerRoundScores, setUpdateRoundScores} =
@@ -73,8 +74,9 @@ export default function UpdateScoresForm() {
         )}
         <button
           className="border-2 border-white p-1 rounded-md mt-2 self-center"
-          type="submit">
-          Update
+          type="submit"
+          disabled={useFormStatus.pending}>
+          {useFormStatus.pending ? "Updating..." : "Update"}
         </button>
       </form>
     </div>
