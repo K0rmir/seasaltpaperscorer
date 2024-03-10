@@ -23,7 +23,7 @@ export default function UpdateScoresForm() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col border-white border-2 m-5 p-5 rounded-md">
       <form action={handleUpdateRoundScores}>
         <input
           className="formInput"
