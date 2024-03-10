@@ -23,7 +23,7 @@ export default function UpdateScoresForm() {
   }
 
   return (
-    <div className="flex flex-col border-white border-2 m-5 p-5 rounded-md">
+    <div className="flex flex-col border-white border-2 m-5 p-5 rounded-md items-center justify-items-center items-center">
       <form action={handleUpdateRoundScores}>
         <input
           className="formInput"
@@ -72,7 +72,7 @@ export default function UpdateScoresForm() {
           />
         )}
         <button
-          className="border-2 border-white p-1 rounded-md mt-2 "
+          className="border-2 border-white p-1 rounded-md mt-2 self-center"
           type="submit">
           Update
         </button>
