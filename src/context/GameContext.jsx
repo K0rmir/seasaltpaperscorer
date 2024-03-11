@@ -1,6 +1,6 @@
 "use client";
 
-import {createContext, useContext, useState} from "react";
+import {createContext, useContext, useState, useEffect} from "react";
 
 const GameContext = createContext();
 
@@ -53,22 +53,24 @@ export default function GameProvider({children}) {
       setPlayerThreeTotalScore(playerThreeTotalScore + playerRoundScoresArr[2]);
       setPlayerFourTotalScore(playerFourTotalScore + playerRoundScoresArr[3]);
     }
+    console.log("1 - ", playerTotalScoresArr);
   }
 
-  function checkGameOver() {
-    console.log("check game over");
-    for (let i = 0; i < playerTotalScoresArr.length; i++) {
-      if (
-        (playerTotalScoresArr[i] =
-          gameScore || playerTotalScoresArr[i] > gameScore)
-      ) {
-        setGameOver(true);
-      }
-    }
-  }
+  useEffect(() => {
+    const hasWinner = playerTotalScoresArr.some((score) => score >= gameScore);
+    setGameOver(hasWinner);
+  }, [playerTotalScoresArr, gameScore]);
 
-  console.log(playerTotalScoresArr);
-  console.log(gameOver);
+  // useEffect(() => {
+  //   for (let i = 0; i < playerTotalScoresArr.length; i++) {
+  //     if (playerTotalScoresArr[i] >= gameScore) {
+  //       setGameOver(true);
+  //     }
+  //   }
+  // }, [updateRoundScores, gameScore]);
+
+  console.log("3 - ", playerTotalScoresArr);
+  console.log("4 - ", gameOver);
 
   return (
     <GameContext.Provider
@@ -93,7 +95,7 @@ export default function GameProvider({children}) {
         setUpdateRoundScores,
         updateRoundScores,
         setPlayerRoundScores,
-        checkGameOver,
+        // checkGameOver,
         gameOver,
       }}>
       {children}

@@ -26,7 +26,7 @@ export default function UpdateScoresForm() {
     getPlayerRoundScores(formData);
     setPlayerRoundScores(playerRoundScoresArr);
     setUpdateRoundScores(false);
-    checkGameOver();
+    // checkGameOver();
   }
 
   return (
