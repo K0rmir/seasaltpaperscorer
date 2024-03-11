@@ -2,6 +2,7 @@
 
 import {useGameContext} from "@/context/GameContext";
 import UpdateScoresForm from "@/components/UpdateScoresForm.jsx";
+import GameOver from "@/components/GameOver.jsx";
 
 export default function TwoPlayerGame() {
   const {
@@ -9,15 +10,10 @@ export default function TwoPlayerGame() {
     gameScore,
     playerOneTotalScore,
     playerTwoTotalScore,
-    setPlayerOneScore,
-    setPlayerTwoScore,
-    playerOneRoundScore,
-    playerTwoRoundScore,
     setUpdateRoundScores,
     updateRoundScores,
+    gameOver,
   } = useGameContext();
-
-  console.log(updateRoundScores);
 
   return (
     <div className="flex flex-col content-center items-center">
@@ -38,6 +34,7 @@ export default function TwoPlayerGame() {
         Update Scores
       </button>
       {updateRoundScores && <UpdateScoresForm />}
+      {gameOver && <GameOver />}
     </div>
   );
 }

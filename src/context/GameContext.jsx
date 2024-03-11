@@ -11,6 +11,8 @@ export default function GameProvider({children}) {
   const [gameScore, setGameScore] = useState(0);
   // This state controls whether or not the Create Game button has been clicked //
   const [gameCreated, setGameCreated] = useState(false);
+  // State to control whether or not the end game component is triggered. //
+  const [gameOver, setGameOver] = useState(false);
   // Array of player names //
   const [playerNames, setPlayerNames] = useState();
   // States for each players current score //
@@ -18,6 +20,13 @@ export default function GameProvider({children}) {
   const [playerTwoTotalScore, setPlayerTwoTotalScore] = useState(0);
   const [playerThreeTotalScore, setPlayerThreeTotalScore] = useState(0);
   const [playerFourTotalScore, setPlayerFourTotalScore] = useState(0);
+  // array of players total scores //
+  let playerTotalScoresArr = [
+    playerOneTotalScore,
+    playerTwoTotalScore,
+    playerThreeTotalScore,
+    playerFourTotalScore,
+  ];
   // State to handle form appearing to update scores at end of each round //
   const [updateRoundScores, setUpdateRoundScores] = useState(false);
   // Functions to player size and update, create game form & total game score respectively //
@@ -46,6 +55,21 @@ export default function GameProvider({children}) {
     }
   }
 
+  function checkGameOver() {
+    console.log("check game over");
+    for (let i = 0; i < playerTotalScoresArr.length; i++) {
+      if (
+        (playerTotalScoresArr[i] =
+          gameScore || playerTotalScoresArr[i] > gameScore)
+      ) {
+        setGameOver(true);
+      }
+    }
+  }
+
+  console.log(playerTotalScoresArr);
+  console.log(gameOver);
+
   return (
     <GameContext.Provider
       value={{
@@ -69,6 +93,8 @@ export default function GameProvider({children}) {
         setUpdateRoundScores,
         updateRoundScores,
         setPlayerRoundScores,
+        checkGameOver,
+        gameOver,
       }}>
       {children}
     </GameContext.Provider>
