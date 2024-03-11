@@ -53,24 +53,14 @@ export default function GameProvider({children}) {
       setPlayerThreeTotalScore(playerThreeTotalScore + playerRoundScoresArr[2]);
       setPlayerFourTotalScore(playerFourTotalScore + playerRoundScoresArr[3]);
     }
-    console.log("1 - ", playerTotalScoresArr);
   }
-
+  // This use effect triggers when the playertotalscorearray is updated, it uses the some method to test is any scores in the array are >= the gameScore //
+  // then triggers the end of the game if true //
   useEffect(() => {
-    const hasWinner = playerTotalScoresArr.some((score) => score >= gameScore);
-    setGameOver(hasWinner);
-  }, [playerTotalScoresArr, gameScore]);
-
-  // useEffect(() => {
-  //   for (let i = 0; i < playerTotalScoresArr.length; i++) {
-  //     if (playerTotalScoresArr[i] >= gameScore) {
-  //       setGameOver(true);
-  //     }
-  //   }
-  // }, [updateRoundScores, gameScore]);
-
-  console.log("3 - ", playerTotalScoresArr);
-  console.log("4 - ", gameOver);
+    const isWinner = playerTotalScoresArr.some((score) => score >= gameScore);
+    setGameOver(isWinner);
+    console.log(isWinner);
+  }, [playerTotalScoresArr]);
 
   return (
     <GameContext.Provider
@@ -95,7 +85,6 @@ export default function GameProvider({children}) {
         setUpdateRoundScores,
         updateRoundScores,
         setPlayerRoundScores,
-        // checkGameOver,
         gameOver,
       }}>
       {children}
