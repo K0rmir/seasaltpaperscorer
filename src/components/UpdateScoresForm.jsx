@@ -4,8 +4,15 @@ import {useGameContext} from "@/context/GameContext";
 import {useFormStatus} from "react-dom";
 
 export default function UpdateScoresForm() {
-  const {playerNames, playerNum, setPlayerRoundScores, setUpdateRoundScores} =
-    useGameContext();
+  const {
+    playerNames,
+    playerNum,
+    updatePlayerRoundScores,
+    setUpdateRoundScores,
+    updateTotalPlayerScores,
+    // checkGameOver,
+    playerTotalScoresArr,
+  } = useGameContext();
 
   //   array of each players round score that is populated from inputs in form upon submission //
   let playerRoundScoresArr = [];
@@ -19,8 +26,10 @@ export default function UpdateScoresForm() {
   // function to update player scores and end of each round and reset update scores form //
   function handleUpdateRoundScores(formData) {
     getPlayerRoundScores(formData);
-    setPlayerRoundScores(playerRoundScoresArr);
+    updatePlayerRoundScores(playerRoundScoresArr);
+    updateTotalPlayerScores();
     setUpdateRoundScores(false);
+    console.log("total player scores pushed to array");
   }
 
   return (

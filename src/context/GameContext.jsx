@@ -8,7 +8,7 @@ export default function GameProvider({children}) {
   // playerNum state updates when user clicks 2 / 3 / 4 buttons to set how many players there are in the CreateGame component. //
   const [playerNum, setPlayerNum] = useState(0);
   // This state games total score needed in a game to win depending on player size //
-  const [gameScore, setGameScore] = useState(0);
+  const [gameScore, setGameScore] = useState(1);
   // This state controls whether or not the Create Game button has been clicked //
   const [gameCreated, setGameCreated] = useState(false);
   // State to control whether or not the end game component is triggered. //
@@ -43,7 +43,7 @@ export default function GameProvider({children}) {
     setGameScore(30);
   }
   // Function to update player scores at the end of each round //
-  function setPlayerRoundScores(playerRoundScoresArr) {
+  function updatePlayerRoundScores(playerRoundScoresArr) {
     setPlayerOneTotalScore(playerOneTotalScore + playerRoundScoresArr[0]);
     setPlayerTwoTotalScore(playerTwoTotalScore + playerRoundScoresArr[1]);
     if (playerNum === 3) {
@@ -54,13 +54,45 @@ export default function GameProvider({children}) {
       setPlayerFourTotalScore(playerFourTotalScore + playerRoundScoresArr[3]);
     }
   }
-  // This use effect triggers when the playertotalscorearray is updated, it uses the some method to test is any scores in the array are >= the gameScore //
+  // push total scores into total scores array when scores are updated at the end of each round.
+  function updateTotalPlayerScores() {
+    playerTotalScoresArr.push(
+      playerOneTotalScore,
+      playerTwoTotalScore,
+      playerThreeTotalScore,
+      playerFourTotalScore
+    );
+    console.log("Updating total player scores");
+  }
+
+  console.log("external", playerTotalScoresArr, "log");
+  console.log("game over =", gameOver);
+
+  // This use effect triggers when the round scores are updated and calls the checkGameOver function. //
   // then triggers the end of the game if true //
   useEffect(() => {
-    const isWinner = playerTotalScoresArr.some((score) => score >= gameScore);
-    setGameOver(isWinner);
-    console.log(isWinner);
-  }, [playerTotalScoresArr]);
+    checkGameOver();
+  }, [updateRoundScores]);
+  // Check whether or not there is an element in playerTotalScoresArr that is >= gameScore. If true, setGameOver to true. //
+  function checkGameOver() {
+    console.log("check game over function");
+    if (playerTotalScoresArr.some((score) => score >= gameScore)) {
+      setGameOver(true);
+    }
+  }
+
+  let winningPlayerScoreIndex;
+  let winningPlayerName;
+
+  useEffect(() => {
+    if (gameOver === true) {
+      let winningPlayerScoreIndex = playerTotalScoresArr.findIndex(
+        (scoreIndex) => scoreIndex >= gameScore
+      );
+      winningPlayerName = playerNames[winningPlayerScoreIndex];
+    }
+    console.log(` ${winningPlayerName} is the winner!`);
+  }, [gameOver]);
 
   return (
     <GameContext.Provider
@@ -84,8 +116,12 @@ export default function GameProvider({children}) {
         playerFourTotalScore,
         setUpdateRoundScores,
         updateRoundScores,
-        setPlayerRoundScores,
+        updatePlayerRoundScores,
+        updateTotalPlayerScores,
         gameOver,
+        setGameOver,
+        // checkGameOver,
+        playerTotalScoresArr,
       }}>
       {children}
     </GameContext.Provider>
