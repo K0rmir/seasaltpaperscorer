@@ -10,8 +10,6 @@ export default function UpdateScoresForm() {
     updatePlayerRoundScores,
     setUpdateRoundScores,
     updateTotalPlayerScores,
-    // checkGameOver,
-    playerTotalScoresArr,
   } = useGameContext();
 
   //   array of each players round score that is populated from inputs in form upon submission //
@@ -29,7 +27,6 @@ export default function UpdateScoresForm() {
     updatePlayerRoundScores(playerRoundScoresArr);
     updateTotalPlayerScores();
     setUpdateRoundScores(false);
-    console.log("total player scores pushed to array");
   }
 
   return (

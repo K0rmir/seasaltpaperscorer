@@ -54,6 +54,7 @@ export default function GameProvider({children}) {
       setPlayerFourTotalScore(playerFourTotalScore + playerRoundScoresArr[3]);
     }
   }
+
   // push total scores into total scores array when scores are updated at the end of each round.
   function updateTotalPlayerScores() {
     playerTotalScoresArr.push(
@@ -62,36 +63,30 @@ export default function GameProvider({children}) {
       playerThreeTotalScore,
       playerFourTotalScore
     );
-    console.log("Updating total player scores");
   }
-
-  console.log("external", playerTotalScoresArr, "log");
-  console.log("game over =", gameOver);
 
   // This use effect triggers when the round scores are updated and calls the checkGameOver function. //
   // then triggers the end of the game if true //
   useEffect(() => {
     checkGameOver();
   }, [updateRoundScores]);
+
   // Check whether or not there is an element in playerTotalScoresArr that is >= gameScore. If true, setGameOver to true. //
   function checkGameOver() {
-    console.log("check game over function");
     if (playerTotalScoresArr.some((score) => score >= gameScore)) {
       setGameOver(true);
     }
   }
 
-  let winningPlayerScoreIndex;
-  let winningPlayerName;
-
+  // When gameOver is true, get index of winning players score in TotalScoresArr, then set winningPlayerName from playerNames array. //
+  const [winningPlayerName, setWinningPlayerName] = useState(" ");
   useEffect(() => {
     if (gameOver === true) {
       let winningPlayerScoreIndex = playerTotalScoresArr.findIndex(
         (scoreIndex) => scoreIndex >= gameScore
       );
-      winningPlayerName = playerNames[winningPlayerScoreIndex];
+      setWinningPlayerName(playerNames[winningPlayerScoreIndex]);
     }
-    console.log(` ${winningPlayerName} is the winner!`);
   }, [gameOver]);
 
   return (
@@ -120,8 +115,8 @@ export default function GameProvider({children}) {
         updateTotalPlayerScores,
         gameOver,
         setGameOver,
-        // checkGameOver,
         playerTotalScoresArr,
+        winningPlayerName,
       }}>
       {children}
     </GameContext.Provider>
