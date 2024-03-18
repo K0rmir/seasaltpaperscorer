@@ -16,6 +16,12 @@ export default function FourPlayerGame() {
     updateRoundScores,
     gameOver,
   } = useGameContext();
+
+  const handleRefresh = () => {
+    console.log("button click");
+    window.location.reload();
+  };
+
   return (
     <div className="flex flex-col content-center items-center">
       <p className="m-5">Total points needed to win: {gameScore}</p>
@@ -31,13 +37,22 @@ export default function FourPlayerGame() {
         <div>{playerFourTotalScore}</div>
       </div>
 
-      <button
-        className="border-2 border-white p-1 rounded-md mt-5 w-32 m-5"
-        onClick={() => {
-          setUpdateRoundScores(true);
-        }}>
-        Update Scores
-      </button>
+      {!gameOver && (
+        <button
+          className="border-2 border-white p-1 rounded-md mt-5 w-32 m-5"
+          onClick={() => {
+            setUpdateRoundScores(true);
+          }}>
+          Update Scores
+        </button>
+      )}
+      {gameOver && (
+        <button
+          className="border-2 border-white p-1 rounded-md mt-5 w-32 m-5"
+          onClick={handleRefresh}>
+          New Game
+        </button>
+      )}
       {updateRoundScores && <UpdateScoresForm />}
       {gameOver && <GameOver />}
     </div>
